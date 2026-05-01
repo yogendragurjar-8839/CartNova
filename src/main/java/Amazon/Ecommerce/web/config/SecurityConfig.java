@@ -19,7 +19,11 @@ public class SecurityConfig {
                         .requestMatchers("/public/**").permitAll()
                         .anyRequest().authenticated()
                 )
-                .httpBasic(Customizer.withDefaults());
+                .formLogin(form -> form
+                .loginPage("/public/login")
+                .defaultSuccessUrl("/public/home", true)
+                .permitAll()
+        );
 
         return http.build();
 
