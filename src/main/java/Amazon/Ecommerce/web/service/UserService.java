@@ -28,20 +28,19 @@
         }
 
         // Get User by ID
-        public ResponseEntity<?> getUser(int id) {
+        public User getUser(int id) {
             Optional<User> optionalUser = userRepository.findById(id);
 
             if (optionalUser.isPresent()) {
-                return new ResponseEntity<>(optionalUser.get(), HttpStatus.OK);
-            } else {
-                return new ResponseEntity<>("User Not Found", HttpStatus.NOT_FOUND);
+                return getUser(id);
             }
+            return null;
         }
 
         // Get All Users
-        public ResponseEntity<?> getAllUsers() {
+        public List<User> getAllUsers() {
             List<User> users = userRepository.findAll();
-            return new ResponseEntity<>(users, HttpStatus.OK);
+            return users;
         }
 
         // Delete User

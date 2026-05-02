@@ -16,12 +16,14 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/public/**").permitAll()
+                        .requestMatchers("/public/**","/css/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
                 .loginPage("/public/login")
-                .defaultSuccessUrl("/public/home", true)
+                        .loginProcessingUrl("/do-login")
+                .defaultSuccessUrl("/admin/dashboard", true)
+                        .failureUrl("/login?error=true")
                 .permitAll()
         );
 

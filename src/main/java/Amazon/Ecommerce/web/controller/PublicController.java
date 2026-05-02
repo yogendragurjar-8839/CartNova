@@ -31,25 +31,18 @@ public class PublicController {
     {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userService.addUser(user);
+        return "redirect:/public/login";
+    }
+
+    @GetMapping("/login")
+    public String LoginPage()
+    {
         return "login";
     }
-    @GetMapping("/home")
-    public String homePage(Model  model)
-    {
-        ArrayList<String> listname=new ArrayList<>();
-        listname.add("yogendra");
-        listname.add("shiv");
-        listname.add("ajit");
 
-        model.addAttribute("listname",listname);
-        model.addAttribute("a",10);
-        model.addAttribute("b",20);
-        return "home";
-    }
-    @GetMapping("/login")
-    public String LoginPage(Model model)
+    @GetMapping("/home")
+    public String HomePage(Model  model)
     {
-        model.addAttribute("user",new User());
         return "home";
     }
 }
