@@ -35,8 +35,9 @@ public class PublicController {
     }
 
     @GetMapping("/login")
-    public String LoginPage()
+    public String LoginPage(Model model)
     {
+        model.addAttribute("user", new User());
         return "login";
     }
 

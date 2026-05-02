@@ -29,12 +29,7 @@
 
         // Get User by ID
         public User getUser(int id) {
-            Optional<User> optionalUser = userRepository.findById(id);
-
-            if (optionalUser.isPresent()) {
-                return getUser(id);
-            }
-            return null;
+            return userRepository.findById(id).orElse(null);
         }
 
         // Get All Users
@@ -71,5 +66,6 @@
             } else {
                 return new ResponseEntity<>("User Not Found", HttpStatus.NOT_FOUND);
             }
+
         }
     }

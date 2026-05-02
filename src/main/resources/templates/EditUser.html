@@ -15,15 +15,12 @@
 
         <!-- Username -->
         <label>Username</label>
-        <input type="text" th:field="*{userName}" th:value="${user.userName}"  required>
+        <input type="text" th:field="*{username}" th:value="${user.username}"  required>
 
         <!-- Email -->
         <label>Email</label>
         <input type="email" th:field="*{email}"  th:value="${user.email}" required>
 
-        <!-- Password -->
-        <label>Password</label>
-        <input type="password" th:field="*{password}"  th:vlaue="${user.password}" placeholder="Enter new password">
 
         <!-- Buttons -->
         <div class="btn-group">

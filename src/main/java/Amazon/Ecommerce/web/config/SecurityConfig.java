@@ -23,7 +23,7 @@ public class SecurityConfig {
                 .loginPage("/public/login")
                         .loginProcessingUrl("/do-login")
                 .defaultSuccessUrl("/admin/dashboard", true)
-                        .failureUrl("/login?error=true")
+                        .failureUrl("/public/login?error=true")
                 .permitAll()
         );
 

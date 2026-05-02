@@ -5,12 +5,13 @@ import Amazon.Ecommerce.web.repository.UserRepository;
 import Amazon.Ecommerce.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/admin")
 public class AdminController {
 
@@ -20,18 +21,18 @@ public class AdminController {
     UserRepository userRepository;
 
     // Add User
-    @PostMapping("/dashboard")
+    @GetMapping("/dashboard")
     public String adminDashboard(Model model) {
         List<User> users =userService.getAllUsers();
         model.addAttribute("users",users);
         return "admindashboard";
     }
 
-    // Get All Users
+   /* // Get All Users
     @GetMapping("/")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
-    }
+    }*/
 
     // Get User by ID
     @GetMapping("/{id}")
@@ -65,4 +66,5 @@ public class AdminController {
         userRepository.save(user);
         return "redirect:/admin/dashboard";
     }
+
 }

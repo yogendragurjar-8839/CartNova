@@ -7,7 +7,7 @@
 
 <h2>Login Page</h2>
 
-<form th:action="@{/public/home}" method="post" th:object="${user}">
+<form th:action="@{/do-login}" method="post" th:object="${user}">
     <input type="text" th:field="*{username}" placeholder="Enter Username" required />
     <input type="password" th:field="*{password}" placeholder="Enter Password" required/>
     <button type="submit">Login</button>
